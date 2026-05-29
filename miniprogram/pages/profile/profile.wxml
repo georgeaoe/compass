@@ -3,7 +3,6 @@
   <view class="profile-card">
     <image class="avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <view class="nickname">{{userInfo.nickName}}</view>
-    <view wx:if="{{hasUserInfo}}" class="profile-tip">已通过微信授权登录</view>
-    <button wx:else class="login-again-button" bindtap="goToLogin">返回登录</button>
+    <view class="profile-tip">{{hasUserInfo ? '已设置个人资料' : '当前以访客身份浏览'}}</view>
   </view>
 </view>

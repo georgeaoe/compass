@@ -1,8 +1,53 @@
 <navigation-bar title="行业分析" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <view class="industry-page">
-  <view class="industry-card">
-    <view class="industry-title">行业分析</view>
-    <view class="industry-desc">点击按钮开始行业分析流程</view>
-    <button class="analysis-button" bindtap="runIndustryAnalysis">触发行业分析</button>
+  <view class="hero-card">
+    <view class="eyebrow">Industry Workspace</view>
+    <view class="hero-title">行业分析工作台</view>
+    <view class="hero-desc">整合趋势判断、竞品观察、风险识别与机会建议，帮助你快速形成行业研判。</view>
+    <van-button
+      custom-class="hero-button"
+      type="primary"
+      round
+      block
+      size="large"
+      bind:click="runIndustryAnalysis"
+    >
+      开始行业分析
+    </van-button>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">核心能力</view>
+      <view class="section-subtitle">从多个维度拆解行业信息</view>
+    </view>
+    <van-grid column-num="{{2}}" gutter="16" border="{{false}}">
+      <van-grid-item wx:for="{{capabilities}}" wx:key="title" use-slot>
+        <view class="capability-card">
+          <van-icon name="{{item.icon}}" custom-class="capability-icon" />
+          <view class="capability-title">{{item.title}}</view>
+          <view class="capability-desc">{{item.desc}}</view>
+        </view>
+      </van-grid-item>
+    </van-grid>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">分析流程</view>
+      <view class="section-subtitle">按步骤沉淀可复用结论</view>
+    </view>
+    <van-cell-group inset>
+      <van-cell
+        wx:for="{{featureList}}"
+        wx:key="title"
+        title="{{item.title}}"
+        label="{{item.desc}}"
+        icon="{{item.icon}}"
+        is-link
+        bind:click="onFeatureTap"
+        data-title="{{item.title}}"
+      />
+    </van-cell-group>
   </view>
 </view>

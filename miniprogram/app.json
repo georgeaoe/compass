@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/industry/industry",
     "pages/profile/profile",
     "pages/logs/logs"
@@ -13,11 +12,15 @@
     "list": [
       {
         "pagePath": "pages/industry/industry",
-        "text": "行业分析"
+        "text": "行业分析",
+        "iconPath": "assets/tabbar/industry.png",
+        "selectedIconPath": "assets/tabbar/industry-active.png"
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "assets/tabbar/profile.png",
+        "selectedIconPath": "assets/tabbar/profile-active.png"
       }
     ]
   },

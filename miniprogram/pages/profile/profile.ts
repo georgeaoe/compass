@@ -4,7 +4,7 @@ Component({
   data: {
     userInfo: {
       avatarUrl: defaultAvatarUrl,
-      nickName: '未登录',
+      nickName: '访客用户',
     },
     hasUserInfo: false,
   },
@@ -20,27 +20,25 @@ Component({
   },
   methods: {
     refreshUserInfo() {
-      const userInfo = getApp<IAppOption>().globalData.userInfo
+      const app = getApp<IAppOption>()
+      const storedUserInfo = wx.getStorageSync<AppUserInfo | ''>('userInfo')
+      const userInfo = app.globalData.userInfo || storedUserInfo
 
       if (!userInfo) {
         this.setData({
           userInfo: {
             avatarUrl: defaultAvatarUrl,
-            nickName: '未登录',
+            nickName: '访客用户',
           },
           hasUserInfo: false,
         })
         return
       }
 
+      app.globalData.userInfo = userInfo
       this.setData({
         userInfo,
         hasUserInfo: true,
-      })
-    },
-    goToLogin() {
-      wx.reLaunch({
-        url: '/pages/index/index',
       })
     },
   },
