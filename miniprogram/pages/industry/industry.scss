@@ -1,0 +1,41 @@
+page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.industry-page {
+  padding: 48rpx;
+  box-sizing: border-box;
+}
+
+.industry-card {
+  padding: 48rpx 36rpx;
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 16rpx 48rpx rgba(15, 23, 42, 0.06);
+}
+
+.industry-title {
+  color: #1f2937;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.industry-desc {
+  margin: 16rpx 0 44rpx;
+  color: #6b7280;
+  font-size: 28rpx;
+}
+
+.analysis-button {
+  height: 92rpx;
+  border-radius: 46rpx;
+  background: #1677ff;
+  color: #ffffff;
+  font-size: 32rpx;
+  line-height: 92rpx;
+}
+
+.analysis-button::after {
+  border: 0;
+}

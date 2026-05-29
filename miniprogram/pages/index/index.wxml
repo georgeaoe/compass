@@ -1,28 +1,18 @@
 <!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
-    </view>
+<navigation-bar title="登录" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view class="login-page">
+  <view class="login-card">
+    <view class="login-title">欢迎使用</view>
+    <view class="login-desc">授权微信头像和昵称后进入主页</view>
+    <button
+      wx:if="{{canIUseGetUserProfile}}"
+      class="login-button"
+      loading="{{isLoggingIn}}"
+      disabled="{{isLoggingIn}}"
+      bindtap="loginWithWechat"
+    >
+      微信授权登录
+    </button>
+    <view wx:else class="unsupported-tip">当前基础库不支持微信授权登录，请升级微信版本</view>
   </view>
-</scroll-view>
+</view>

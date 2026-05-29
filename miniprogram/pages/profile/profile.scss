@@ -1,0 +1,55 @@
+page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.profile-page {
+  padding: 48rpx;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64rpx 36rpx;
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 16rpx 48rpx rgba(15, 23, 42, 0.06);
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #eef2f7;
+}
+
+.nickname {
+  margin-top: 28rpx;
+  color: #1f2937;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.profile-tip {
+  margin-top: 16rpx;
+  color: #6b7280;
+  font-size: 28rpx;
+}
+
+.login-again-button {
+  width: 320rpx;
+  height: 88rpx;
+  margin-top: 36rpx;
+  border-radius: 44rpx;
+  background: #1677ff;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 88rpx;
+}
+
+.login-again-button::after {
+  border: 0;
+}

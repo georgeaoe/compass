@@ -1,8 +1,26 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/industry/industry",
+    "pages/profile/profile",
     "pages/logs/logs"
   ],
+  "tabBar": {
+    "color": "#8a8f99",
+    "selectedColor": "#1677ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/industry/industry",
+        "text": "行业分析"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"

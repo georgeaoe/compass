@@ -1,0 +1,8 @@
+<navigation-bar title="行业分析" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view class="industry-page">
+  <view class="industry-card">
+    <view class="industry-title">行业分析</view>
+    <view class="industry-desc">点击按钮开始行业分析流程</view>
+    <button class="analysis-button" bindtap="runIndustryAnalysis">触发行业分析</button>
+  </view>
+</view>
