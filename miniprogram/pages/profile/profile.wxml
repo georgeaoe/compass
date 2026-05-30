@@ -1,8 +1,58 @@
-<navigation-bar title="我的" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view class="page-top-bar"></view>
 <view class="profile-page">
   <view class="profile-card">
     <image class="avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <view class="nickname">{{userInfo.nickName}}</view>
     <view class="profile-tip">{{hasUserInfo ? '已设置个人资料' : '当前以访客身份浏览'}}</view>
+  </view>
+
+  <view class="overview-grid">
+    <view class="overview-card">
+      <view class="overview-value">{{analysisCount}}</view>
+      <view class="overview-label">分析次数</view>
+    </view>
+    <view class="overview-card">
+      <view class="overview-value">{{favoriteCount}}</view>
+      <view class="overview-label">收藏报告</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">最近分析</view>
+    <view wx:if="{{!hasRecentAnalyses}}" class="empty-card">
+      <van-icon name="notes-o" custom-class="empty-icon" />
+      <view class="empty-title">暂无分析记录</view>
+      <view class="empty-desc">开始行业分析后，最近记录会展示在这里</view>
+    </view>
+    <view wx:else class="recent-list">
+      <view wx:for="{{recentAnalyses}}" wx:key="title" class="recent-item">
+        <view class="recent-title">{{item.title}}</view>
+        <view class="recent-time">{{item.createdAt}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">配置管理</view>
+    <van-cell-group inset>
+      <van-cell
+        custom-class="config-cell"
+        title="API Key 配置"
+        label="{{hasApiKey ? '已保存' : '仅适合本地测试'}}"
+        value="{{hasApiKey ? '已配置' : '未配置'}}"
+        icon="setting-o"
+        is-link
+        data-action="apiKey"
+        bind:click="onMenuTap"
+      />
+      <van-cell
+        title="关于项目"
+        label="查看行业分析工作台说明"
+        icon="info-o"
+        is-link
+        data-action="about"
+        bind:click="onMenuTap"
+      />
+    </van-cell-group>
   </view>
 </view>

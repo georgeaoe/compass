@@ -3,8 +3,14 @@ page {
   background: #f5f7fb;
 }
 
+.page-top-bar {
+  height: 168rpx;
+  background: #ffffff;
+}
+
 .profile-page {
-  padding: 48rpx;
+  min-height: calc(100vh - 180rpx);
+  padding: 24rpx 28rpx 56rpx;
   box-sizing: border-box;
 }
 
@@ -39,17 +45,99 @@ page {
   font-size: 28rpx;
 }
 
-.login-again-button {
-  width: 320rpx;
-  height: 88rpx;
-  margin-top: 36rpx;
-  border-radius: 44rpx;
-  background: #1677ff;
-  color: #ffffff;
-  font-size: 30rpx;
-  line-height: 88rpx;
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 28rpx;
 }
 
-.login-again-button::after {
-  border: 0;
+.overview-card {
+  padding: 32rpx 24rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-shadow: 0 16rpx 48rpx rgba(15, 23, 42, 0.05);
+  text-align: center;
+}
+
+.overview-value {
+  color: #1677ff;
+  font-size: 44rpx;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.overview-label {
+  margin-top: 10rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.section {
+  margin-top: 36rpx;
+}
+
+.section-title {
+  margin-bottom: 20rpx;
+  color: #1f2937;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.empty-card {
+  padding: 44rpx 32rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-shadow: 0 16rpx 48rpx rgba(15, 23, 42, 0.05);
+  text-align: center;
+}
+
+.empty-icon {
+  color: #9ca3af;
+  font-size: 56rpx;
+}
+
+.empty-title {
+  margin-top: 18rpx;
+  color: #1f2937;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.empty-desc {
+  margin-top: 10rpx;
+  color: #8a8f99;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.recent-list {
+  overflow: hidden;
+  border-radius: 24rpx;
+  background: #ffffff;
+}
+
+.recent-item {
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #eef2f7;
+}
+
+.recent-item:last-child {
+  border-bottom: 0;
+}
+
+.recent-title {
+  color: #1f2937;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.recent-time {
+  margin-top: 8rpx;
+  color: #8a8f99;
+  font-size: 24rpx;
+}
+
+.config-cell .van-cell__label {
+  white-space: nowrap;
 }

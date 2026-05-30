@@ -5,6 +5,7 @@
     "pages/logs/logs"
   ],
   "tabBar": {
+    "custom": true,
     "color": "#8a8f99",
     "selectedColor": "#1677ff",
     "backgroundColor": "#ffffff",
@@ -12,15 +13,11 @@
     "list": [
       {
         "pagePath": "pages/industry/industry",
-        "text": "行业分析",
-        "iconPath": "assets/tabbar/industry.png",
-        "selectedIconPath": "assets/tabbar/industry-active.png"
+        "text": "行业分析"
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的",
-        "iconPath": "assets/tabbar/profile.png",
-        "selectedIconPath": "assets/tabbar/profile-active.png"
+        "text": "我的"
       }
     ]
   },

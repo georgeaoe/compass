@@ -1,53 +1,38 @@
-<navigation-bar title="行业分析" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view class="page-top-bar"></view>
 <view class="industry-page">
   <view class="hero-card">
-    <view class="eyebrow">Industry Workspace</view>
-    <view class="hero-title">行业分析工作台</view>
-    <view class="hero-desc">整合趋势判断、竞品观察、风险识别与机会建议，帮助你快速形成行业研判。</view>
+    <view class="hero-brand">
+      <image class="hero-logo" src="/assets/logo/logo_v1.png" mode="aspectFit"></image>
+      <text class="brand-text">compass</text>
+    </view>
+    <view class="hero-title">AI 产业投资转折点研究</view>
+    <view class="hero-desc">联网核验最新公开数据，生成买方调研报告，寻找尚未充分定价的交易机会。</view>
     <van-button
       custom-class="hero-button"
       type="primary"
       round
       block
       size="large"
+      disabled="{{isAnalyzing || canDownloadPdf}}"
       bind:click="runIndustryAnalysis"
     >
-      开始行业分析
+      {{isAnalyzing ? '正在生成报告' : canDownloadPdf ? '报告生成完毕' : '开始生成报告'}}
     </van-button>
   </view>
 
-  <view class="section">
-    <view class="section-header">
-      <view class="section-title">核心能力</view>
-      <view class="section-subtitle">从多个维度拆解行业信息</view>
+  <view wx:if="{{hasReport}}" class="report-card">
+    <view class="report-switch">
+      <view
+        wx:for="{{reportTabs}}"
+        wx:key="type"
+        class="report-switch-item {{activeReportType === item.type ? 'is-active' : ''}} {{isAnalyzing ? 'is-disabled' : ''}}"
+        data-report-type="{{item.type}}"
+        bindtap="switchReportType"
+      >
+        {{item.label}}
+      </view>
     </view>
-    <van-grid column-num="{{2}}" gutter="16" border="{{false}}">
-      <van-grid-item wx:for="{{capabilities}}" wx:key="title" use-slot>
-        <view class="capability-card">
-          <van-icon name="{{item.icon}}" custom-class="capability-icon" />
-          <view class="capability-title">{{item.title}}</view>
-          <view class="capability-desc">{{item.desc}}</view>
-        </view>
-      </van-grid-item>
-    </van-grid>
-  </view>
 
-  <view class="section">
-    <view class="section-header">
-      <view class="section-title">分析流程</view>
-      <view class="section-subtitle">按步骤沉淀可复用结论</view>
-    </view>
-    <van-cell-group inset>
-      <van-cell
-        wx:for="{{featureList}}"
-        wx:key="title"
-        title="{{item.title}}"
-        label="{{item.desc}}"
-        icon="{{item.icon}}"
-        is-link
-        bind:click="onFeatureTap"
-        data-title="{{item.title}}"
-      />
-    </van-cell-group>
+    <mp-html content="{{reportHtml}}" tag-style="{{reportTagStyle}}" />
   </view>
 </view>

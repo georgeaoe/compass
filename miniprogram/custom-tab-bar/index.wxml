@@ -1,0 +1,11 @@
+<van-tabbar
+  active="{{ active }}"
+  active-color="#1677ff"
+  inactive-color="#8a8f99"
+  placeholder
+  safe-area-inset-bottom
+  bind:change="onChange"
+>
+  <van-tabbar-item name="industry" icon="bar-chart-o">行业分析</van-tabbar-item>
+  <van-tabbar-item name="profile" icon="user-o">我的</van-tabbar-item>
+</van-tabbar>
